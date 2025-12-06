@@ -1,16 +1,17 @@
 {
-  "name": "ianmegabot",
+  "name": "ian-megabot",
   "version": "1.0.0",
-  "description": "WhatsApp Mega Bot by Ian",
-  "type": "module",
+  "description": "WhatsApp Megabot by Ian",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "baileys": "^6.17.16",
-    "axios": "^1.6.0",
-    "ytdl-core": "^4.11.0"
+    "baileys": "^6.7.9",
+    "axios": "^1.6.8",
+    "ytdl-core": "^4.11.0",
+    "fs-extra": "^11.2.0"
   },
   "license": "MIT"
 }
