@@ -1,4 +1,5 @@
-
+import * as baileys from '@whiskeysockets/baileys';
+const { default: makeWASocket, useMultiFileAuthState, downloadContentFromMessage, fetchLatestBaileysVersion } = baileys;
 import fs from 'fs';- import makeWASocket, { useMultiFileAuthState, downloadContentFromMessage } from '@whiskeysockets/baileys';
 + import { makeWASocket, useMultiFileAuthState, downloadContentFromMessage } from 'baileys';
 import axios from 'axios';
