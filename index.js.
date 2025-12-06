@@ -192,5 +192,58 @@ async function startBot() {
 
     sock.ev.on('creds.update', saveCreds);
 }
+// --- Download command (.download) --- 
+try {
+  if (text.startsWith(".download")) {
+    // Get argument after command or replied message
+    let arg = text.split(" ").slice(1).join(" ").trim();
+    if (!arg && m.message.extendedTextMessage?.contextInfo?.quotedMessage) {
+      // If user replied to message, take that text
+      arg = m.message.extendedTextMessage.contextInfo.quotedMessage.conversation || '';
+    }
+
+    if (!arg) {
+      await sock.sendMessage(from, { text: "Provide a name or link to download. Example: .download song name or reply to message with link" });
+      return;
+    }
+
+    // Notify user that download started
+    const replyMsg = await sock.sendMessage(from, { text: `⬇️ Searching & downloading: ${arg}` });
+
+    const filePath = `./media/yt/download_${Date.now()}.mp3`;
+
+    try {
+      // If it's a valid YouTube link
+      if (ytdl.validateURL(arg)) {
+        const writeStream = fs.createWriteStream(filePath);
+        ytdl(arg, { filter: 'audioonly' }).pipe(writeStream);
+        await new Promise((resolve, reject) => {
+          writeStream.on('finish', resolve);
+          writeStream.on('error', reject);
+        });
+
+        // Send audio file after download
+        await sock.sendMessage(from, {
+          document: fs.createReadStream(filePath),
+          mimetype: "audio/mpeg",
+          fileName: `song_${Date.now()}.mp3`
+        });
+
+        await sock.sendMessage(from, { text: "✅ Download complete!" });
+      } else {
+        // Placeholder for name search or social media downloads
+        await sock.sendMessage(from, { text: `🔍 Searching for "${arg}"... (feature placeholder)` });
+        // Integrate your search/download API here
+      }
+    } catch (err) {
+      console.error("Download error:", err);
+      await sock.sendMessage(from, { text: "❌ Download failed" });
+    } finally {
+      try { if (fs.existsSync(filePath)) fs.unlinkSync(filePath); } catch (e) {}
+    }
+  }
+} catch (err) {
+  console.error("Download handler error:", err);
+}
 
 startBot();
