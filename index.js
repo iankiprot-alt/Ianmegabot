@@ -1,5 +1,4 @@
-
-import makeWASocket, { useMultiFileAuthState, downloadContentFromMessage } from '@adiwajshing/baileys';
+import makeWASocket, { useMultiFileAuthState, downloadContentFromMessage } from '@whiskeysockets/baileys';
 import fs from 'fs';
 import axios from 'axios';
 import ytdl from 'ytdl-core';
