@@ -8,8 +8,8 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@whiskeysockets/baileys": "^6.7.9",
-    "axios": "^1.6.0",
+  "@whiskeysockets/baileys": "^6.7.9",
++ "baileys": "^6.17.16",
     "ytdl-core": "^4.11.0"
   },
   "license": "MIT"
