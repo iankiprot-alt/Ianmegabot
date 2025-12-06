@@ -1,5 +1,6 @@
-import makeWASocket, { useMultiFileAuthState, downloadContentFromMessage } from '@whiskeysockets/baileys';
-import fs from 'fs';
+
+import fs from 'fs';- import makeWASocket, { useMultiFileAuthState, downloadContentFromMessage } from '@whiskeysockets/baileys';
++ import { makeWASocket, useMultiFileAuthState, downloadContentFromMessage } from 'baileys';
 import axios from 'axios';
 import ytdl from 'ytdl-core';
 import { setTimeout as delay } from 'timers/promises';
