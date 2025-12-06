@@ -1,0 +1,12 @@
+media/
+├─ viewonce/
+│  └─ .gitkeep
+├─ statuses/
+│  ├─ images/
+│  │  └─ .gitkeep
+│  └─ videos/
+│     └─ .gitkeep
+├─ downloads/
+│  └─ .gitkeep
+└─ yt/
+   └─ .gitkeep
