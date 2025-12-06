@@ -245,5 +245,34 @@ try {
 } catch (err) {
   console.error("Download handler error:", err);
 }
+// .delete → delete single message for everyone
+if (text === ".delete") {
+    try {
+        const keyToDelete = m.message?.extendedTextMessage?.contextInfo?.stanzaId
+            ? { remoteJid: from, id: m.message.extendedTextMessage.contextInfo.stanzaId, fromMe: m.key.fromMe }
+            : m.key;
 
+        await sock.sendMessage(from, { delete: keyToDelete });
+        await sock.sendMessage(from, { text: "✅ Message deleted for everyone" });
+    } catch (err) {
+        console.error("Delete command error:", err);
+        await sock.sendMessage(from, { text: "❌ Failed to delete message" });
+    }
+}
+
+// .deleteall → delete multiple messages for everyone
+if (text === ".deleteall") {
+    try {
+        const messages = await sock.loadMessages(from, 100); // adjust number if needed
+        for (let msg of messages) {
+            if (msg.key.fromMe || msg.message) {
+                await sock.sendMessage(from, { delete: msg.key }).catch(() => {});
+            }
+        }
+        await sock.sendMessage(from, { text: "✅ All messages cleared for everyone" });
+    } catch (err) {
+        console.error("DeleteAll command error:", err);
+        await sock.sendMessage(from, { text: "❌ Failed to delete all messages" });
+    }
+}
 startBot();
