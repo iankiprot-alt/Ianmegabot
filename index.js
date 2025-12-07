@@ -1,10 +1,5 @@
-import * as baileys from '@whiskeysockets/baileys';
+import * as baileys from 'baileys';
 const { default: makeWASocket, useMultiFileAuthState, downloadContentFromMessage, fetchLatestBaileysVersion } = baileys;
-+ import { makeWASocket, useMultiFileAuthState, downloadContentFromMessage } from 'baileys';
-import axios from 'axios';
-import ytdl from 'ytdl-core';
-import { setTimeout as delay } from 'timers/promises';
-import path from 'path';
 
 
 // Annoyed slang responses
