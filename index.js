@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => res.send("Ian Mega Bot is running"));
 
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+app.listen(PORT, (8080) => console.log(`Server listening on port ${PORT}`));
 // --- End snippet ---
 
 // Annoyed slang responses
