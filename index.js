@@ -1,3 +1,8 @@
+import express from 'express';
+const app = express();
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 import fs from 'fs';
 import path from 'path';
 import makeWASocket from 'baileys';
@@ -5,14 +10,6 @@ import { useMultiFileAuthState, downloadContentFromMessage } from 'baileys';
 import axios from 'axios';
 import ytdl from 'ytdl-core';
 import { setTimeout as delay } from 'timers/promises';
-
-// --- Render port listener snippet ---
-const express = require('express');
-const app = express();
-
-// Render port
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 
 // Annoyed slang responses
 const slangResponses = [
