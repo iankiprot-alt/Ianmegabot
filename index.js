@@ -5,6 +5,15 @@ import { useMultiFileAuthState, downloadContentFromMessage } from 'baileys';
 import axios from 'axios';
 import ytdl from 'ytdl-core';
 import { setTimeout as delay } from 'timers/promises';
+// --- Render port listener snippet ---
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get("/", (req, res) => res.send("Ian Mega Bot is running"));
+
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+// --- End snippet ---
 
 // Annoyed slang responses
 const slangResponses = [
