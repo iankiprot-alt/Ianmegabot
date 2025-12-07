@@ -1,7 +1,10 @@
-
 import fs from 'fs';
 import path from 'path';
-import { default: makeWASocket, useMultiFileAuthState, downloadContentFromMessage } from 'baileys';
+import makeWASocket from 'baileys';
+import { useMultiFileAuthState, downloadContentFromMessage } from 'baileys';
+import axios from 'axios';
+import ytdl from 'ytdl-core';
+import { setTimeout as delay } from 'timers/promises';
 
 // Annoyed slang responses
 const slangResponses = [
