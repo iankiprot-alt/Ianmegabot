@@ -1,17 +1,28 @@
 {
-  "name": "ian-megabot",
+  "name": "ianmegabot",
   "version": "1.0.0",
-  "description": "WhatsApp Megabot by Ian",
+  "description": "WhatsApp Mega Bot with status save, YouTube download, slang replies, and more",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "baileys": "^6.7.9",
-    "axios": "^1.6.8",
-    "ytdl-core": "^4.11.0",
-    "fs-extra": "^11.2.0"
+    "baileys": "^6.17.16",
+    "axios": "^1.7.2",
+    "ytdl-core": "^4.11.0"
   },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "baileys",
+    "mega",
+    "status-save",
+    "yt-download"
+  ],
+  "author": "Ian",
   "license": "MIT"
 }
