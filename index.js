@@ -1,6 +1,7 @@
-import * as baileys from 'baileys';
-const { default: makeWASocket, useMultiFileAuthState, downloadContentFromMessage, fetchLatestBaileysVersion } = baileys;
 
+import fs from 'fs';
+import path from 'path';
+import { default: makeWASocket, useMultiFileAuthState, downloadContentFromMessage } from 'baileys';
 
 // Annoyed slang responses
 const slangResponses = [
